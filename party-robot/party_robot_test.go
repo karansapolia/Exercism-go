@@ -5,6 +5,27 @@ import (
 	"testing"
 )
 
+func TestSwitchOperatingSystem(t *testing.T) {
+	tests := []struct {
+		description     string
+		operatingSystem string
+		want            string
+	}{
+		{
+			description:     "Run the switchOperatingSystem function",
+			operatingSystem: "macos",
+			want:            "The operating system is macos",
+		},
+	}
+	for _, tt := range tests {
+		t.Run(tt.description, func(t *testing.T) {
+			if got := switchOperatingSystem(tt.operatingSystem); got != tt.want {
+				t.Errorf("switchOperatingSystem(%s) = %s, want %s", tt.operatingSystem, got, tt.want)
+			}
+		})
+	}
+}
+
 func TestWelcome(t *testing.T) {
 	tests := []struct {
 		description string
