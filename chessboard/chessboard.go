@@ -36,7 +36,13 @@ func CountInRank(cb Chessboard, rank int) int {
 
 // CountAll should count how many squares are present in the chessboard.
 func CountAll(cb Chessboard) int {
-	panic("Please implement CountAll()")
+	countSquares := 0
+	for index := range cb {
+		for range cb[index] {
+			countSquares++
+		}
+	}
+	return countSquares
 }
 
 // CountOccupied returns how many squares are occupied in the chessboard.
