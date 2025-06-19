@@ -17,7 +17,13 @@ func Application(log string) string {
 // Replace replaces all occurrences of old with new, returning the modified log
 // to the caller.
 func Replace(log string, oldRune, newRune rune) string {
-	panic("Please implement the Replace() function")
+	logCopy := []rune(log)
+	for index, value := range logCopy {
+		if value == oldRune {
+			logCopy[index] = newRune
+		}
+	}
+	return string(logCopy)
 }
 
 // WithinLimit determines whether or not the number of characters in log is
