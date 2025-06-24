@@ -34,7 +34,7 @@ const (
 
 // Add a String method to SpeedUnit
 func (su SpeedUnit) String() string {
-	units := []string{"km/ph", "mph"}
+	units := []string{"km/h", "mph"}
 	return units[su]
 }
 
@@ -57,3 +57,6 @@ type MeteorologyData struct {
 }
 
 // Add a String method to MeteorologyData
+func (md MeteorologyData) String() string {
+	return fmt.Sprintf("%v: %v, Wind %v at %v, %v%% Humidity", md.location, md.temperature, md.windDirection, md.windSpeed, md.humidity)
+}
