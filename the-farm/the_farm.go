@@ -1,6 +1,7 @@
 package thefarm
 
-// TODO: define the 'DivideFood' function
+import "errors"
+
 func DivideFood(fc FodderCalculator, numOfCows int) (float64, error) {
 	fodderAmount, FAError := fc.FodderAmount(numOfCows)
 	fatteningFactor, FFError := fc.FatteningFactor()
@@ -15,9 +16,12 @@ func DivideFood(fc FodderCalculator, numOfCows int) (float64, error) {
 
 }
 
-// TODO: define the 'ValidateInputAndDivideFood' function
 func ValidateInputAndDivideFood(fc FodderCalculator, numOfCows int) (float64, error) {
-	panic("AAAAAAAA!")
+	if numOfCows <= 0 {
+		return 0, errors.New("invalid number of cows")
+	}
+
+	return DivideFood(fc, numOfCows)
 }
 
 // TODO: define the 'ValidateNumberOfCows' function
